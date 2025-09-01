@@ -1,0 +1,147 @@
+:root {
+    --red: #7b284f;
+    --brown: #854632;
+    --black: #302d2c;
+    --gay: #5f574e;
+    --white: white;
+    --eeg: #f3e6d8;
+}
+
+
+body {
+    background-color: var(--eeg);
+}
+
+.container {
+    max-width: 700px;
+    margin: 100px auto;
+    background: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    padding: 50px;
+    font-family: "Montserrat", sans-serif;
+    
+    img {
+        width: 100%;
+        border-radius: 20px;
+    }
+    
+    .omelelle-title {
+        h1 {
+            font-size: 36px;
+            color: var(--black);
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .cooktime {
+        background-color: #ffdded65;
+        border-radius:15px;
+        padding: 5px;
+        margin-top: 40px;
+
+        h2 {
+            font-size: 22px;
+            color: #7b284f;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        ul {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--gay);
+
+            li::marker {
+                color: var(--red);
+            }
+        }
+    }
+
+    .Ingredients {
+        margin-top: 40px;
+
+        h3 {
+            font-size: 28px;
+            color: var(--brown);
+        }
+
+          ul {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--gay);
+            
+
+            li::marker {
+                color: var(--brown);
+            }
+        }
+    }
+
+    .Instructions {
+        margin-top: 40px;
+
+        h2 {
+            font-size: 28px;
+            color: var(--brown);
+
+
+        }
+
+        
+        ol {
+            font-size: 16px;
+            line-height: 1.3;
+            color: var(--gay);
+
+            li {
+                padding-left: 8px;
+                margin-bottom: 5px;
+            }
+
+            li::marker {
+                color: var(--brown);       
+                font-size: 16px;  
+                font-weight: bold; 
+                text-indent: 10px;
+            }
+        }
+    }
+    
+    .Nutrition {
+        margin-top: 40px;
+        
+        h2 {
+            font-size: 28px;
+            color: var(--brown);
+        }
+
+        p {
+            font-size: 16px;
+            color: var(--gay);
+        }
+
+        table {
+        width: 100%;
+        border-collapse: collapse;
+
+            td {
+            
+            color: var(--gay);
+            padding: 10px 10px 10px 40px;  /* บน, ขวา, ล่าง, ซ้าย */
+            border-bottom: 1px solid #5f574e46;
+            }
+
+            .row {
+                color: var(--red);
+                font-weight: bold;
+                font-size: 17px;
+            }
+        }
+    }
+}
+

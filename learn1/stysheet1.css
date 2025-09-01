@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.navbar {
+  display: flex;
+ 
+  background-color: #333;
+  color: white;
+}
+
+.logo {
+
+  width: 20%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  width: 100%;
+  list-style: none;
+
+}
+
+ul li{
+  margin: 0 1rem;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+header{
+  
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(63, 46, 44);
+
+}
+
+.header-info{
+  text-align: center;
+
+  width: 650px;
+  height: 250px;
+  color: white;
+}
+
+.header-info a {
+  display: block;
+  width: 80px;
+   margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(64, 96, 124);
+  color: rgb(0, 0, 0);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 15px;
+  
+}
+
+.teams {
+  display: grid;
+  grid-template-columns: repeat(3,1fr) ;
+}
+
+.teams-items {
+  
+  padding: 2rem;
+  background: rgb(185, 63, 63);
+  color: white;
+  text-align: center;
+
+}
+
+.teams-items img {
+  border-radius: 100%;
+  box-shadow: 0 0 10px #333;
+}
+
+.teams-items a {
+  text-decoration: none;
+  color: white;
+  background-color: blue;
+  padding: 0.5rem 1rem;
+  
+}
+
+footer {
+  background-color: #333;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+}

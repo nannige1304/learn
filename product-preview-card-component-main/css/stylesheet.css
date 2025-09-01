@@ -1,0 +1,27 @@
+ * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+ }
+
+ body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(30, 38%, 92%);
+        height: 100vh;
+        margin: 0;
+      }
+
+ .container {
+    border: 1px solid black;
+    max-width: 900px;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    
+ }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+

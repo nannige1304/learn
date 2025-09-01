@@ -1,0 +1,561 @@
+:root {
+    --yellow: #f6d365;
+    --black: #333333;
+    --white: #ffffff;
+}
+
+* { 
+    margin: 0;  /* รีเซ็ต margin ของทุก element */
+    padding: 0; /* รีเซ็ต padding ของทุก element */
+    box-sizing: border-box; /* ทำให้ขนาด element รวม border+padding */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.hamburger {
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute; /* จัดตำแหน่งอิสระใน container */
+    right: 0; /* ชิดขอบขวาของ container */
+}
+
+/* Header section */
+header{ 
+    height: 800px;
+    background: url("../img/banner-bg.png");
+    background-repeat: no-repeat;  /*ป้องกันไม่ให้ภาพซ้ำ (ถ้าภาพเล็กเกินไป จะไม่ tile ซ้ำ ๆ) */
+    background-size: cover; /* ขยายภาพให้ครอบคลุมพื้นที่ header */
+
+    nav {
+        margin: 0 2rem;
+        .nav-wrapper {
+            position: relative;
+            height: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo {
+
+            }
+            .menu {
+                display: flex;   /* เมนูแนวนอน */
+                list-style: none; /* เอา bullet ออก */
+                
+                li {
+                    margin-left: 50px;
+
+                    a {
+                        color: var(--white);
+                        text-decoration: none; /* เอาขีดเส้นใต้ลิงก์ออก */
+                    }
+                }
+            }
+        }
+       
+    }
+    @media screen and (min-width:768px) {
+        .hamburger {
+            display: none;
+        }
+        
+    }
+    @media screen and (max-width: 768px) {
+        height: auto;
+        padding: 3rem 0;
+        
+        nav {
+          
+
+            .nav-wrapper {
+            flex-direction: column;  /* เปลี่ยนเป็นแนวตั้ง */
+            align-items: start;
+            margin: 3rem 0;
+            height: auto;
+
+            .menu.show { /* เปิดเมนูเมื่อมี class show */
+                display: flex;
+
+            }
+
+
+                .menu {
+                    display: none; /* ซ่อนเมนูไว้ก่อน */
+                    flex-direction: column; /* เวลาปรากฏเป็นแนวตั้ง */
+
+                    li {
+                        margin-left: 0;
+                        margin-top: 2rem  ;
+                    }
+                    
+                }
+            }
+        }
+    }
+    .discount-title {
+        .discount-title-wrapper {
+            color: var(--white);
+            display: flex;
+            justify-content: center; /* ใช้กับcontainer ที่เป็นdisplay: flex;จัดitem ภายในcontainer ให้อยู่กึ่งกลางแนวนอน */
+            align-items: center; /* ใช้กับcontainer แบบFlex เช่นกัน จัดitem ภายในcontainer ให้อยู่กึ่งกลางแนวตั้ง */
+            text-align: center; /* ใช้กับข้อความหรือ inline elementจัดให้ ข้อความหรือ inline element อยู่กึ่งกลางแนวนอน */
+
+            .discount-title-box{
+                width: 55rem;
+                margin: 0.625rem;
+
+                h1 {
+                    /* clamp() = กำหนด min / auto scale / max ในบรรทัดเดียว */
+                    font-size:clamp(2rem, 10vw, 6.875rem);
+                    text-transform: uppercase ;
+
+                }
+                p {
+                    font-size:clamp(1rem, 10vw, 1.875rem);
+                }
+
+                .discount-btn {
+                    background-color:var(--yellow);
+                    max-width: 20rem;    /* ขนาดกว้างสูงสุด ~320px */
+                    color: var(--black);
+                    width: 100%;  /* กว้างเต็มพื้นที่ container */
+                    height: 65px; /* ความสูงของปุ่ม */
+                    display: inline-flex; /* ใช้ flexbox แบบ inline เพื่อจัดเนื้อหาภายใน */
+                    justify-content: center; /* จัดเนื้อหากลางแนวนอน */
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    align-items: center;  /* จัดเนื้อหากลางแนวตั้ง */
+                    text-decoration: none; /* เอาขีดเส้นใต้ออก (สำหรับลิงก์) */
+                    border-radius: 0.3rem;    /*5px*/
+                    margin-top: 3.75rem;     /*60px*/
+                    
+                }
+            }
+        }
+    }
+}
+
+/* popular menu section */
+.popular-menu {
+    background: url(../img/popular-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    color: var(--black);
+    overflow: hidden;/* ซ่อนทุกอย่างที่ล้นขอบกล่อง */
+
+    .popular-menu-title {
+        margin:3rem 0;
+        text-align: center;
+
+        h2 {
+            font-size: clamp(2rem, 10vw, 3.875rem);
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size:clamp(1rem, 10vw, 1.625rem);
+        }
+    }
+
+    .popular-menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* สร้างคอลัมน์ที่ เล็กสุด 250px, ขยายเต็มพื้นที่ได้, และ จำนวนคอลัมน์ปรับตามหน้าจออัตโนมัติ */
+        gap: 3rem; /* ช่องว่างระหว่างลูกของ container ทำให้ layout สวยและอ่านง่าย โดยไม่ต้องใช้ margin ของแต่ละ item */
+
+        .popular-menu-items {
+            text-align: center;
+            
+            img {
+                width: 100%;
+            }
+
+            h3 {
+                font-size: clamp(1rem, 10vw, 2rem);
+                margin: 1rem 0;
+            }
+
+            p{
+                font-size: clamp(1rem, 10vw, 1.25rem);
+            }
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        height: auto;
+        padding: 3rem 0rem;
+    } 
+}
+
+/* chicken wings */
+.chicken {
+    background: url(../img/chicken-wing-bg-black.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    
+
+    .chicken-wrapper {
+        display: flex;
+        align-items: center;
+        height: 800px;
+
+        .chicken-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .chicken-img {
+                img {width: 100%;
+                }
+            }
+
+            .chicken-info {
+                max-width: 580px;
+                width: 100%;
+                color: var(--white);
+                padding: 1rem;
+
+                h2 {
+                    font-size: clamp(2rem, 10vw, 3.625rem);
+                    text-transform: uppercase;
+                }
+
+                p {
+                    font-size: clamp(1rem, 10vw, 1.5rem);
+                    margin-top: 2rem;
+                }
+
+                .chicken-btn {
+                    background-color:var(--yellow);
+                    max-width: 20rem;    /*320px*/
+                    color: var(--black);
+                    width: 100%;
+                    height: 65px;
+                    display: inline-flex;
+                    justify-content: center;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    align-items: center;
+                    text-decoration: none;
+                    border-radius: 0.3rem;    /*5px*/
+                    margin-top: 3.75rem;     /*60px*/
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        height: auto;
+        
+        .chicken-wrapper {
+            height: auto;
+
+            .chicken-box {
+                padding: 3rem 0;
+                flex-direction: column; 
+            }
+        }
+    }
+}
+
+
+ /* Stats Section */
+.stats {
+    background: url(../img/stats-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    color: var(--black);
+    overflow: hidden;
+
+    .stats-title {
+        text-align: center;
+        margin: 4rem;
+
+      
+        h2 {
+                font-size: clamp(2rem, 10vw, 3.625rem);
+                text-transform: uppercase;
+        }
+
+        p {
+                font-size: clamp(1rem, 10vw, 1.5rem);
+                margin-top: 2rem;
+        }
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 5rem;
+        text-align: center;
+        margin-top: 4rem;
+
+        .stats-grid-items {
+            border: 10px solid var(--black);
+            padding: 8rem 0;
+            margin-top: 3rem;
+
+        h3 {
+                font-size: clamp(2rem, 10vw, 4rem);
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: clamp(1rem, 10vw, 2rem);
+                margin-top: 2rem;
+                font-weight: bold;
+            }
+        }
+    }
+    @media screen and (max-width:768px) {
+        height: auto;
+        padding:3rem 0 ;
+    }
+}
+
+/* chicken satay section */
+.satay {
+    background: url(../img/chicken-satay-bg-black.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    color: var(--white);
+
+    .satay-wrapper {
+        display: flex;
+        align-items: center;
+        height: 800px;
+    
+        .satay-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+    
+            .satay-info {
+                max-width: 580px;
+                width: 100%;
+                padding: 1rem;
+
+
+                h3 {
+                    font-size: clamp(2rem, 10vw, 3.625rem);
+                    text-transform: uppercase;
+                }
+
+                p{
+                    font-size: clamp(1rem, 10vw, 1.5rem);
+                    margin-top: 2rem;
+                }
+
+                .satay-btn {
+                    background-color:var(--yellow);
+                    max-width: 20rem;    /*320px*/
+                    color: var(--black);
+                    width: 100%;
+                    height: 65px;
+                    display: inline-flex;
+                    justify-content: center;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    align-items: center;
+                    text-decoration: none;
+                    border-radius: 0.3rem;    /*5px*/
+                    margin-top: 3.75rem;     /*60px*/
+                }
+            }
+            .satay-img {
+                img  {
+                    width: 100%;
+                }
+            }
+        }    
+    }
+    @media screen and (max-width:768px) {
+        height: auto;
+        
+
+        .satay-wrapper {
+            height: auto;
+       
+
+        
+            .satay-box {
+                padding: 3rem 0;
+                flex-direction: column; 
+            
+            }
+        }
+    }
+}
+
+/* chef section */
+.chef {
+    background: url(../img/chef-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px; 
+
+    .chef-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 800px;
+        text-align: center;
+
+        .chef-info {
+            img {
+                max-width:248px ;
+                width: 100%;
+            }
+
+            p{
+                font-size: clamp(1rem, 10vw, 2.3rem);
+                margin-top: 3rem;
+            }
+
+            h3{
+                font-size: clamp(1rem, 10vw, 2.8rem);
+            }
+        }
+    }
+}
+
+
+/* Update Section */
+.update {
+    background: url(../img/update-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+
+    .update-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 800px;
+        
+
+        .update-box {
+            text-align: center;
+
+            h3 {
+                font-size: clamp(1rem, 10vw, 3.75rem);
+                
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: clamp(1rem, 10vw, 1.875rem);
+                margin: 3rem 0;
+            }
+
+            form {
+                display: flex;
+                justify-content: center;
+                margin: 1rem;
+
+                input {
+                    max-width: 550px;
+                    width: 100%;
+                    padding: 1rem;
+                    border: none;
+                    outline: none; /* ซ่อนเส้นเน้น focus ของ browser */
+                }
+
+                button {
+                    max-width: 220px;
+                    width: 100%;
+                    padding: 1rem;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    background-color: var(--black);
+                    color: var(--white);
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    
+                }
+            }
+        }
+    }
+}
+
+/* fooddelish footer */
+footer {
+    background: var(--black);
+    height: 800px;
+
+    .footer-wrapper {
+        height: 800px;
+        display: flex;
+        align-items: center;
+        
+        .footer-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            color: var(--white);
+
+            .footer-grid-items{
+                margin: 1rem;
+
+                h4 {
+                    font-size: clamp(1rem, 10vw, 2rem);
+                    margin-bottom: 1rem;
+                    font-weight: 300;
+                }
+
+                a {
+                    color: var(--white);
+                }
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        margin-top: 1rem;
+
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                &:nth-child(1) {
+                    ul {
+                        display: flex;
+
+                        li {
+                            margin-top: 1rem;
+                            margin-right: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        height: auto;
+        padding: 3rem 0;
+
+        .footer-wrapper {
+            height: auto;
+        }
+        
+    }
+}
+
+
+
+
+

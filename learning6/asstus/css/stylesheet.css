@@ -1,0 +1,94 @@
+
+:root {
+    --orange :#e58a31;
+    --mintgreen :#186e74;
+    --darkgreen :#184b4a;
+    --gay:#f2f2f2;
+}
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100vh;
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gay);
+    color: var(--gay);
+    font-size: 15px;
+    padding: 0 20px;
+}
+
+main {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+    padding: 35px;
+
+    h1 {
+        font-size: 32px;
+        padding-top: 20px;
+        font-weight: 700;
+    }
+
+    p {
+        padding-top: 20px;
+        font-weight: 400;
+        line-height: 1.7;
+    }
+
+    button {
+        margin-top: 50px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+    }
+}
+
+.card:nth-child(1) {
+    background: var(--orange);
+    border-radius: 10px 0 0 10px;
+
+    button {
+        color: var(--orange);
+    }
+
+}
+
+.card:nth-child(2) {
+    background: var(--mintgreen);
+
+    button {
+        color: var(--mintgreen);
+    }
+}
+
+.card:nth-child(3) {
+    background: var(--darkgreen);
+    border-radius: 0 10px 10px 0;
+
+    button {
+        color: var(--darkgreen);
+    }
+}
+
+
+
+
+
+
+
+
+
