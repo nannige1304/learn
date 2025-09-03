@@ -1,101 +1,96 @@
- * {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
-}
 
- body {
-   max-width:1440px ;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background-color: hsl(30, 38%, 92%);
-   height: 100vh;
-   margin: auto;
-}
-
- .container {
-   max-width: 600px;
-   display: flex;
-   align-items: stretch;
-   
-
-   .card-img{
-      flex: 1;
-      height: 100%;
-
-      img {
-         max-width: 100%;
-         height: auto;
-         border-radius: 20px 0 0 20px;
-      }
+   * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
    }
+
+   body {
+      max-width: 1440px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: hsl(30, 38%, 92%);
+      height: 100vh;
+      margin: auto;
+   }
+
+   .container {
+      display: flex;
+      max-width: 600px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      }
+
+      /* ---------- รูป ---------- */
+   .card-img {
+      flex: 1;
+      }
+      .card-img img {
+      width: 100%;
+      display: block;
+      border-radius: 0;
+      margin: 0;
+      }
+
+      /* ---------- ข้อมูล ---------- */
    .card-info {
       flex: 1;
-      background-color: white;
-      display: flexbox;
+      padding: 30px;
+      display: flex;
       flex-direction: column;
-      border-radius: 0 20px 20px 0; 
-      
-
-      .card-info-wrapper {
-         justify-content: center;
-         align-items: center;
-         margin: 30px;
-
+      justify-content: space-between;
       }
 
-      h1 {
-         font-size: 14px;
-         font-weight: 400;
-         font-family: "Montserrat", sans-serif;
-         margin-bottom: 10px;
-         text-transform: uppercase;
-         letter-spacing: 4px;
-         color: hsl(228, 12%, 48%);
+   .card-info h1 {
+      font-size: 14px;
+      font-weight: 400;
+      font-family: "Montserrat", sans-serif;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: hsl(228, 12%, 48%);
       }
 
-      h2 {
-         font-size: 34px;
-         font-weight: 700;
-         font-family: "Fraunces", serif;
-         line-height: 1;
-         color: hsl(212, 21%, 14%);
+   .card-info h2 {
+      font-size: 34px;
+      font-weight: 700;
+      font-family: "Fraunces", serif;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: hsl(212, 21%, 14%);
       }
 
-      p{
-         font-size: 14px;
-         font-weight: 500;
-         font-family: "Montserrat", sans-serif;
-         margin: 20px 0;
-         line-height: 1.7;
-         color:hsl(228, 12%, 48%) ;
+   .card-info p {
+      font-size: 14px;
+      font-weight: 500;
+      font-family: "Montserrat", sans-serif;
+      margin: 20px 0;
+      line-height: 1.7;
+      color: hsl(228, 12%, 48%);
       }
-      
-      .price {
-         display: flex;
-         align-items: center;
-         gap: 20px;
-         margin-bottom: 20px;
 
-         h3{
-            font-size: 34px;
-            font-family: "Fraunces", serif;
-            width:700;
-            color:hsl(158, 36%, 37%);
-            margin: 0;
-         }
-
-         p {
-            font-size: 14px;
-            font-family: "Montserrat", sans-serif;
-            margin: 0;
-            color: hsl(228, 12%, 48%);
-         }
+   .price {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
       }
-   }
+   .price h3 {
+      font-size: 34px;
+      font-family: "Fraunces", serif;
+      font-weight: 700;
+      color: hsl(158, 36%, 37%);
+      }
+   .price p {
+      font-size: 14px;
+      font-family: "Montserrat", sans-serif;
+      color: hsl(228, 12%, 48%);
+      }
 
+      /* ---------- ปุ่ม ---------- */
    button {
       display: flex;
       justify-content: center;
@@ -107,38 +102,110 @@
       border-radius: 10px;
       gap: 15px;
       cursor: pointer;
-      
-      
-
-      img {
-         width: 16px;
-         align-items: center;
-         margin: 0;
       }
-      a {
-         font-size: 14px;
-         font-weight: 700;
-         color: hsl(0, 0%, 100%);
-         text-decoration: none;
-         align-items: center;
-         margin: 0;
+   button img {
+      width: 16px;
       }
-   }
-
+   button a {
+      font-size: 14px;
+      font-weight: 700;
+      color: hsl(0, 0%, 100%);
+      text-decoration: none;
+      }
    button:hover {
       background-color: hsl(158, 42%, 18%);
+      }
+
+  /* ---------- Responsive ทั่วไป ---------- */
+   @media (max-width: 620px) {
+   .container {
+      flex-direction: column;
+      max-width: 70%;
+      margin: 30px auto;
+      border-radius: 20px;   /* container ครองโค้ง */
+      overflow: hidden;      /* ซ่อนส่วนเกิน */
+      background: white;
+   }
+
+   .card-img {
+      height: 200px;         /* คุมความสูงของภาพไว้ */
+   }
+
+   .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     /* ตัดภาพแบบ crop */
+      display: block;
+      border-radius: 0;
+      margin: 0;
+   }
+
+   .card-info {
+      padding: 30px;
+   }
+   .card-info h1{
+      margin-top: 0;
+   }
+   .card-info h2 {
+      font-size: 34px;
+      margin-top: 20px;
+      
+   }
+
+   .price h3 {
+      font-size: 34px;
+   }
+   .attribution {
+      margin-top: 0;
+   }
+  
+}
+
+   /* ---------- เฉพาะมือถือ 375px ---------- */
+   @media (max-width: 375px) {
+   .card-img {
+      height: 100px;          /* ให้สั้นลงกว่าที่ 620px */
+   }
+
+   .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+
+   .card-info {
+      padding: 15px;
+   }
+
+   .card-info h2 {
+      font-size: 22px;
+   }
+
+   .card-info p {
+      font-size: 13px;
+   }
+
+   .price h3 {
+      font-size: 24px;
+   }
+
+   button {
+      padding: 14px 0;
+   }
+   .attribution {
+      margin-top: 0;
    }
 }
 
-   .attribution {
-      font-size: 11px; 
-      text-align: center;
-      position: fixed;
-      align-items: center;
-      bottom: 20px;
-    }
-   .attribution a { 
-      color: hsl(228, 45%, 44%);
-      text-decoration: none;
-   }
 
+ .attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 0;   /* ระยะห่างจาก container */
+  color: hsl(228, 45%, 44%);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
