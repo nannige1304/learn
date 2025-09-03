@@ -5,20 +5,23 @@
     }
 
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: hsl(30, 54%, 90%);
-      margin: 100px auto;
-      
+    display: flex;
+    flex-direction: column;  /* เรียงเป็นแนวตั้ง */
+    min-height: 100vh;       /* สูงไม่น้อยกว่าหน้าจอ */
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(30, 54%, 90%);
+    margin: 100px auto 20px;
+    
     }
 
 .container {
+    
     max-width: 700px;
     background: hsl(0, 0%, 100%);
     border-radius: 40px;
     padding: 40px;
-    font-family: "Outfit", sans-serif;
+    
 
     img {
         width: 100%;
@@ -159,3 +162,15 @@
     }
 }
 
+
+      .attribution {
+      font-size: 11px; 
+      text-align: center;
+      position: relative;
+      align-items: center;
+      margin-top:100px;
+    }
+   .attribution a { 
+      color: hsl(228, 45%, 44%);
+      text-decoration: none;
+   }
