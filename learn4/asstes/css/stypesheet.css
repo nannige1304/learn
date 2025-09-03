@@ -7,7 +7,11 @@
     --eeg: #f3e6d8;
 }
 
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 body {
     background-color: var(--eeg);
 }
@@ -19,7 +23,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 40px;
     padding: 50px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Outfit", sans-serif;
     
     img {
         width: 100%;
